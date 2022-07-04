@@ -1,11 +1,10 @@
-a1 = [121, 144, 19, 161, 19, 144, 19, 11]
-a2 = [11*11, 121*121, 144*144, 19*19, 161*161, 19*19, 144*144, 19*19]
+a1 = [5, 4, 2]
+a2 = [25, 16, 4]
 
-a1.sort()
-a2.sort()
+try:
+    temp = list(map(lambda a : a * a, a1))
+    temp.sort()
+    a2.sort()
 
-temp = list(map(lambda a : a ** 2, a1))
-
-print(temp)
-print(a2)
-print(temp == a2)
+except:
+    print(False)
