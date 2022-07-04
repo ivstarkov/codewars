@@ -8,8 +8,8 @@ def sqInRect(lng, wdth):
         wdth = maximum - minimum
         lng = minimum
         list.append(minimum)
-    for _ in range(maximum - 1):
+    for _ in range(lng * wdth):
         list.append(1)
     return list
 
-print(sqInRect(37, 14))
+print(sqInRect(20, 14))
