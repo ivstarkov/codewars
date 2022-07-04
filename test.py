@@ -1,10 +1,15 @@
-a1 = [5, 4, 2]
-a2 = [25, 16, 4]
+def sqInRect(lng, wdth):
+    if lng == wdth:
+        return None 
+    list = []
+    while lng > 1 and wdth > 1:
+        minimum = min(lng, wdth)
+        maximum = max(lng, wdth)
+        wdth = maximum - minimum
+        lng = minimum
+        list.append(minimum)
+    for _ in range(maximum - 1):
+        list.append(1)
+    return list
 
-try:
-    temp = list(map(lambda a : a * a, a1))
-    temp.sort()
-    a2.sort()
-
-except:
-    print(False)
+print(sqInRect(37, 14))
