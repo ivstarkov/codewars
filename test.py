@@ -1,15 +1,3 @@
-def sqInRect(lng, wdth):
-    if lng == wdth:
-        return None 
-    list = []
-    while lng > 1 and wdth > 1:
-        minimum = min(lng, wdth)
-        maximum = max(lng, wdth)
-        wdth = maximum - minimum
-        lng = minimum
-        list.append(minimum)
-    for _ in range(lng * wdth):
-        list.append(1)
-    return list
-
-print(sqInRect(20, 14))
+list = ["foo", "bar", "welcome"]
+a = [x[::-1] if len(x) >= 5 else x for x in list]
+print(" ".join(a))
