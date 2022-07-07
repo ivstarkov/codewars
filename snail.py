@@ -1,48 +1,16 @@
-array = [[1,2,3,1],
-         [4,5,6,4],
-         [7,8,9,7],
-         [7,8,9,7]]
+array = [[1,2,3],
+         [1,2,3],
+         [1,2,3]]
 
-def snail(array):
-
-    width = len(array[0])
-    height = len(array)
-
-    print(array)
-    
+# Initialize list
+s = []
+while array:
     # 1st row
-    try:
-        list = list.extend(array[0])
-    except:
-        list = array[0]
+    s.extend(array[0])
 
-    # Right row
-    for i in range(1, height - 1):
-        list.append(array[i][width - 1])
-
-    # Bottom row
-    array[height - 1].reverse()
-    list.extend(array[height - 1])
-
-    # Left row
-    for i in range(height - 2, 0, -1):
-        list.append(array[i][0])
-
-    #unpack array
+    # Delete written row from array
     array.pop(0)
-    array.pop()
-    for i in range(height - 2):
-        array[i].pop()
-        array[i].pop(0)
 
-    print(list)
-    if not array:
-       return list
-
-    # Recursion
-    print("=========")
-    print(array)
-    snail(array)
-    print("=========")
-
-print(snail(array))
+    # Rotate array
+    array = list(zip(*array))[::-1]
+print(s)
