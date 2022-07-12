@@ -1,5 +1,9 @@
+a = [[1,2,3],
+     [4,5,6],
+     [7,8,9]]
 
-if not a:
-    print("empty")
-else:
-    print("noempty")
+print(a)
+
+a = list(zip(*a))
+
+print(a)
