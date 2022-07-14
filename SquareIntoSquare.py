@@ -1,7 +1,4 @@
 import math
-from tkinter import X
-from turtle import xcor
-
 
 def decompose(n):
     list = []

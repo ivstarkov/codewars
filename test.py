@@ -1,15 +1,14 @@
-n = 178008001788
+n = [-6,-3,-2,-1,0,1,3,4,5,7,8,9,10,11,14,15,17,18,19,20]
 
-def next_smaller(n):
-    list = [x for x in str(n)]
-    for i in range(len(list) - 1, -1, -1):
-        for j in range(i - 1, -1, -1):
-            if list[i] < list[j]:
-                list[i], list[j] = list[j], list[i]
-                list[j + 1:] = sorted(list[j + 1:], reverse=True)
-                
-                return int("".join(list))
-    return -1
+def solution(args):
+    k = 1
+    for i in range(1,len(args) - 1,1):
+        if args[i - 1] + k == args[i] and args[i] + 1 == args[i + 1]:
+            args[i] = ""
+            k += 1
+        else:
+            k = 1
+        
+    return args
 
-
-print(next_smaller(1027))
+print(solution(n))
