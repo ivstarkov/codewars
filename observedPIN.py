@@ -13,21 +13,17 @@ def get_pins(observed):
                "8": "57890",
                "9": "689",
                "0": "08"}
+
+    # List of possible alternaatives
+    alt_list = [keydict[x] for x in observed]
     
-    # List of all combinations of pin length
-    pinlist = itertools.product("0123456789", repeat = len(observed))
-    
+    # List of possible variants
+    pinlist = list(itertools.product(*alt_list))
+
     # List of tuples to list of strings
     pinlist = list(map("".join, pinlist))
-    
-    # Drop item of list if it is not in possible alternatives   
-    for i in range(len(observed)):
-        for pin in list(pinlist): # list(list) to remove item while iterate
-            if pin[i] not in keydict[observed[i]]:
-                pinlist.remove(pin)
-
-      
+          
     return pinlist
 
 
-print(get_pins("91732"))
+print(get_pins("12"))
