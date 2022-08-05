@@ -14,25 +14,27 @@ def sudoku(puzzle):
 
 
 def check(puzzle):
+    test_set = {1,2,3,4,5,6,7,8,9}
     # check rows:
     for i in range(9):
-        print(sum(puzzle[i])) 
-    print("-------")
+        if set(puzzle[i]) != test_set:
+            return False
 
     # rotate and check rows again
     rotated_puzzle = list(zip(*puzzle[::-1]))
     for i in range(9):
-        print(sum(rotated_puzzle[i]))
-    print("-------")
-
+        if set(rotated_puzzle[i]) != test_set:
+            return False
+    
     # check lil squares
-    for i in range(9):
+    for i in range(0,7,3):
+        for j in range(0,7,3):
+            if (sum(puzzle[j][i:i+3])+sum(puzzle[j+1][i:i+3])+sum(puzzle[j+2][i:i+3])) != 9:
+                return False
 
-        
+    return True
 
-
-
-check(puzzle)
+print(check(puzzle))
 
     
     
